@@ -3,7 +3,7 @@ package main;
 import javax.swing.*;
 import java.awt.*;
 
-public class GamePanel extends JPanel {
+public class GamePanel extends JPanel implements Runnable {
 
     //TODO: Set screen settings
     final int originalTileSize = 16; // 16x16 tile
@@ -15,6 +15,9 @@ public class GamePanel extends JPanel {
     final int screenWidth = tileSize * maxScreenCol; // 768 pixels
     final int screenHeight = tileSize * maxScreenRow; // 576 pixels
 
+    //TODO: Construct a game clock
+    Thread gameThread;
+
     public GamePanel() {
 
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -23,4 +26,15 @@ public class GamePanel extends JPanel {
 
     }
 
+    public void startGameThread() {
+
+        gameThread = new Thread(this);
+        gameThread.start(); // call run method below
+    }
+
+    @Override
+    public void run() {
+        // When we create a Thread object, the object automatically calls this run method.
+
+    }
 }
