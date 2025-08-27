@@ -12,6 +12,11 @@ public class Main {
         window.setResizable(false);
         window.setTitle("Detective RPG");
 
+        GamePanel gamePanel = new GamePanel();
+        window.add(gamePanel);
+
+        window.pack(); // Displays the panel in the window
+
         window.setLocationRelativeTo(null);
         window.setVisible(true);
 
